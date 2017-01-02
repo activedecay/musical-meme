@@ -47,6 +47,24 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
+      path: '/d3',
+      name: 'd3',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/D3/reducer'),
+          System.import('containers/D3'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, component]) => {
+          injectReducer('d3', reducer.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

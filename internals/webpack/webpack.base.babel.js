@@ -58,6 +58,8 @@ module.exports = (options) => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        DBPW: JSON.stringify(process.env.DBPW),
+        DBUSER: JSON.stringify(process.env.DBUSER),
       },
     }),
     new webpack.NamedModulesPlugin(),

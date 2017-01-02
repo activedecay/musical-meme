@@ -12,4 +12,9 @@
 export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
 export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
 export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
+
+export const LOAD_DB = 'boilerplate/App/LOAD_DB';
+export const LOAD_DB_SUCCESS = 'boilerplate/App/LOAD_DB_SUCCESS';
+
 export const DEFAULT_LOCALE = 'en';
+

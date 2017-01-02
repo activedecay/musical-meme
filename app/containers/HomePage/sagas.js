@@ -5,8 +5,8 @@
 import { takeLatest } from 'redux-saga';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import { LOAD_REPOS, LOAD_DB } from 'containers/App/constants';
+import { reposLoaded, repoLoadingError, dbLoaded } from 'containers/App/actions';
 
 import request from 'utils/request';
 import { selectUsername } from 'containers/HomePage/selectors';
@@ -36,12 +36,22 @@ export function* getReposWatcher() {
   yield fork(takeLatest, LOAD_REPOS, getRepos);
 }
 
+export function* hitDb() {
+  const results = yield call(request, 'api');
+  yield put(dbLoaded(results));
+}
+
+export function* getDb() {
+  yield fork(takeLatest, LOAD_DB, hitDb);
+}
+
 /**
  * Root saga manages watcher lifecycle
  */
 export function* githubData() {
   // Fork watcher so we can continue execution
   const watcher = yield fork(getReposWatcher);
+  yield fork(getDb);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);

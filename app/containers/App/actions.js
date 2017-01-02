@@ -16,10 +16,15 @@
  */
 
 import {
+  LOAD_DB,
+  LOAD_DB_SUCCESS,
   LOAD_REPOS,
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
 } from './constants';
+
+export const dbLoaded = (results) => ({ type: LOAD_DB_SUCCESS, results });
+export const loadDb = () => ({ type: LOAD_DB });
 
 /**
  * Load the repositories, this action starts the request saga
