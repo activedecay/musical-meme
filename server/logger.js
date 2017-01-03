@@ -14,10 +14,19 @@ const logger = {
   error: (err) => {
     console.error(chalk.red(err));
   },
+  log: function (...args) {
+    console.log(...args);
+  },
+  debug: () => {
+    console.debug(chalk.green(arguments));
+  },
+  info: () => {
+    console.log(chalk.blue(arguments));
+  },
 
   // Called when express.js app starts on given port w/o errors
   appStarted: (port, tunnelStarted) => {
-    console.log(`Server started ${chalk.green('✓')}`);
+    console.log(`start! ${chalk.green('✓')}`);
 
     // If the tunnel started, log that and the URL it's available at
     if (tunnelStarted) {
@@ -28,8 +37,7 @@ const logger = {
 ${chalk.bold('Access URLs:')}${divider}
 Localhost: ${chalk.magenta(`http://localhost:${port}`)}
       LAN: ${chalk.magenta(`http://${ip.address()}:${port}`) +
-(tunnelStarted ? `\n    Proxy: ${chalk.magenta(tunnelStarted)}` : '')}${divider}
-${chalk.blue(`Press ${chalk.italic('CTRL-C')} to stop`)}
+    (tunnelStarted ? `\n    Proxy: ${chalk.magenta(tunnelStarted)}` : '')}
     `);
   },
 };

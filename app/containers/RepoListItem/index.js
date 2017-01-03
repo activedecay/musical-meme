@@ -21,24 +21,38 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
     const item = this.props.item;
     let nameprefix = '';
 
+
     // If the repository is owned by a different person than we got the data for
     // it's a fork and we should show the name of the owner
-    if (item.owner.login !== this.props.currentUser) {
+    if (item.owner && item.owner.login !== this.props.currentUser) {
       nameprefix = `${item.owner.login}/`;
+    } else {
+      nameprefix = item._id; // eslint-disable-line no-underscore-dangle
     }
 
-    // Put together the content of the repository
-    const content = (
-      <Wrapper>
-        <RepoLink href={item.html_url} target="_blank">
-          {nameprefix + item.name}
-        </RepoLink>
-        <IssueLink href={`${item.html_url}/issues`} target="_blank">
-          <IssueIcon />
-          <FormattedNumber value={item.open_issues_count} />
-        </IssueLink>
-      </Wrapper>
-    );
+    let content;
+    if (item._id) { // eslint-disable-line no-underscore-dangle
+      content = (
+        <Wrapper>
+          <span style={{ alignItems: 'center', display: 'flex' }}>
+            {nameprefix}
+          </span>
+        </Wrapper>
+      );
+    } else {
+      // Put together the content of the repository
+      content = (
+        <Wrapper>
+          <RepoLink href={item.html_url} target="_blank">
+            {nameprefix + item.name}
+          </RepoLink>
+          <IssueLink href={`${item.html_url}/issues`} target="_blank">
+            <IssueIcon />
+            <FormattedNumber value={item.open_issues_count} />
+          </IssueLink>
+        </Wrapper>
+      );
+    }
 
     // Render the content into a list item
     return (

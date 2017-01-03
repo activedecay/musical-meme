@@ -25,10 +25,7 @@ import messages from './messages';
 import { loadRepos, loadDb } from '../App/actions';
 import { changeUsername } from './actions';
 import { selectUsername } from './selectors';
-import { selectRepos, selectLoading, selectError } from 'containers/App/selectors';
-
-const dbuser = process.env.DBUSER;
-const dbpw = process.env.DBPW;
+import { selectRepos, selectLoading, selectError, selectDb } from 'containers/App/selectors';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -57,6 +54,15 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     // If we're not loading, don't have an error and there are repos, show the repos
     } else if (this.props.repos !== false) {
       mainContent = (<List items={this.props.repos} component={RepoListItem} />);
+    }
+
+    let otherContent = null;
+    // Show a loading indicator when we're loading
+    if (!this.props.db) {
+      otherContent = (<List component={LoadingIndicator} />);
+    // If we're not loading, don't have an error? then doit
+    } else if (this.props.db !== false) {
+      otherContent = (<List items={this.props.db} component={RepoListItem} />);
     }
 
     return (
@@ -98,7 +104,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             {mainContent}
           </Section>
         </div>
-        <Button onClick={this.props.onGetDb}> get db! {dbpw} {dbuser} </Button>
+        <Button onClick={this.props.onGetDb}> get db! </Button>
+        {otherContent}
       </article>
     );
   }
@@ -106,6 +113,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
 HomePage.propTypes = {
   loading: React.PropTypes.bool,
+  db: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
   error: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.bool,
@@ -138,6 +149,7 @@ const mapStateToProps = createStructuredSelector({
   username: selectUsername(),
   loading: selectLoading(),
   error: selectError(),
+  db: selectDb(),
 });
 
 // Wrap the component to inject dispatch and state into it

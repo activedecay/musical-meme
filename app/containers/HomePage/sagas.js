@@ -37,7 +37,11 @@ export function* getReposWatcher() {
 }
 
 export function* hitDb() {
-  const results = yield call(request, 'api');
+  const results = yield call(request, 'api/spoon', {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'PUT',
+    body: JSON.stringify({ query: { _id: '5869b62a7733c47a1e44cbac' }, update: { ass: 69 } }),
+  });
   yield put(dbLoaded(results));
 }
 
@@ -51,11 +55,12 @@ export function* getDb() {
 export function* githubData() {
   // Fork watcher so we can continue execution
   const watcher = yield fork(getReposWatcher);
-  yield fork(getDb);
+  const task = yield fork(getDb);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
   yield cancel(watcher);
+  yield cancel(task);
 }
 
 // Bootstrap sagas

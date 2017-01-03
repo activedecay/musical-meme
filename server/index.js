@@ -9,12 +9,31 @@ const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
 const resolve = require('path').resolve;
 const app = express();
+const bodyParser = require('body-parser');
 
 const db = require('./db/db');
 
-// If you need a backend, e.g. an API, add your custom backend-specific middleware here
-app.use('/api', (req, res) => {
-  db().then((data) => res(data));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+app.use(bodyParser.json());
+app.get('/api/:collection', (req, res) => {
+  db.find(req.params.collection)
+    .then((col) => res.json(col));
+});
+
+app.put('/api/:collection', (req, res) => {
+  logger.log('put', req.body);
+  if (!req.body.query || !req.body.update) {
+    res.end();
+    return;
+  }
+  db.findOne(req.params.collection, req.body.query, req.body.update)
+    .then((x) => res.json(x));
+});
+
+app.delete('/api/:collection', (req, res) => {
+  res.end();
 });
 
 // In production we need to pass these values in instead of relying on webpack

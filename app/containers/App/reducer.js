@@ -14,6 +14,7 @@ import {
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS,
   LOAD_REPOS_ERROR,
+  LOAD_DB_SUCCESS,
 } from './constants';
 import { fromJS } from 'immutable';
 
@@ -22,6 +23,7 @@ const initialState = fromJS({
   loading: false,
   error: false,
   currentUser: false,
+  db: false,
   userData: {
     repositories: false,
   },
@@ -43,6 +45,9 @@ function appReducer(state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false);
+    case LOAD_DB_SUCCESS:
+      return state
+        .set('db', action.results);
     default:
       return state;
   }
