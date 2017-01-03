@@ -9,7 +9,8 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
-import d3Reducer from 'containers/D3/reducer';
+import homeReducer from 'containers/HomePage/reducer';
+import signupReducer from 'containers/Signup/reducer';
 
 /*
  * routeReducer
@@ -47,7 +48,8 @@ export default function createReducer(asyncReducers) {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
-    d3: d3Reducer,
+    home: homeReducer,
+    signup: signupReducer,
     ...asyncReducers,
   });
 }

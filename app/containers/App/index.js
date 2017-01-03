@@ -1,9 +1,5 @@
 /**
- *
  * App.react.js
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
 import React from 'react';
@@ -26,10 +22,10 @@ function App(props) {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
+        titleTemplate="%s - lol"
         defaultTitle="React.js Boilerplate"
         meta={[
-          { name: 'description', content: 'A React.js Boilerplate application' },
+          { name: 'description', content: 'A hilarious application' },
         ]}
       />
       <Header />

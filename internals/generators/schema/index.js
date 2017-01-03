@@ -2,13 +2,12 @@
  * Component Generator
  */
 
-// todo g = require generate-schema; g.mongoose(Object object)
+// todo g = require generate-schema; g.mongoose(Object object) OR maybe github.com/keystonejs/keystone
 
 const fs = require('fs');
 const path = require('path');
 const schemaExists = require('../utils/schemaExists');
 const sources = fs.readdirSync('server/db/src');
-const nameSuggestions = sources.map((n) => n.replace(path.extname(n), ''));
 const _ = require('lodash');
 
 const prepareObject = (o) =>
@@ -28,26 +27,23 @@ module.exports = {
   description: 'A mongoose schema',
   prompts: [{
     type: 'list',
-    name: 'source',
+    name: 'source', // data.source
     message: 'Select the source document',
     choices: () => sources.map(s => ({
-      name: s,
-      value: prepareObject(require(`../../../server/db/src/${s}`)),
+      name: s, // display name in schema generator prompts
+      value: {
+        filename: s, // data.source.filename inside { actions: (data) => ... }
+        name: s.replace(path.extname(s), ''), // data.source.name inside { actions: (data) => ... }
+        schema: prepareObject(require(`../../../server/db/src/${s}`)), // eslint-disable-line
+      },
     })),
-  }, {
-    type: 'list',
-    name: 'name',
-    message: 'What should it be called?',
-    choices: () => nameSuggestions,
-    validate: value => schemaExists(`${value}.js`) ? 'A schema with this name already exists' : true,
+    validate: value => // value from prompt choice chosen
+      schemaExists(`${value.name}`) ? 'A schema with this name already exists' : true,
   }],
-  actions: (data) => {
-    console.info(data);
-    return [{
-      type: 'add',
-      path: '../../server/db/schema/{{name}}.js',
-      templateFile: './schema/schema.hbs',
-      abortOnFail: true,
-    }];
-  },
+  actions: () => [{
+    type: 'add',
+    path: '../../server/db/schema/{{source.filename}}',
+    templateFile: './schema/schema.hbs',
+    abortOnFail: true,
+  }],
 };

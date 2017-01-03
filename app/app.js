@@ -25,6 +25,10 @@ import FontFaceObserver from 'fontfaceobserver';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
 
+// save/restore state
+import { loadState, saveState } from './localStorage';
+import throttle from 'lodash/throttle';
+
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
 
@@ -50,8 +54,15 @@ import { translationMessages } from './i18n';
 // this uses the singleton browserHistory provided by react-router
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
-const initialState = {};
+// save/restore the state from localStorage
+const initialState = loadState() || {};
+// Optionally, this could be changed to leverage a created history
+// e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const store = configureStore(initialState, browserHistory);
+// save/restore the state from localStorage
+store.subscribe(throttle(() =>
+  saveState(store.getState().toJS()), 1000)
+);
 
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState

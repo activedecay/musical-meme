@@ -12,13 +12,10 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const db = require('./db/db');
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 app.get('/api/:collection', (req, res) => {
-  db.find(req.params.collection)
+  db.readAll(req.params.collection)
     .then((col) => res.json(col));
 });
 
@@ -28,12 +25,28 @@ app.put('/api/:collection', (req, res) => {
     res.end();
     return;
   }
-  db.findOne(req.params.collection, req.body.query, req.body.update)
-    .then((x) => res.json(x));
+  db.readOne(req.params.collection, req.body.query, req.body.update)
+    .then(x => res.json(x));
+});
+
+app.post('/api/:collection', (req, res) => {
+  logger.log('put', req.body);
+  if (!req.body.create) {
+    res.status(400).end();
+    return;
+  }
+  db.create(req.params.collection, req.body.create)
+    .then(x => res.json(x));
 });
 
 app.delete('/api/:collection', (req, res) => {
-  res.end();
+  logger.log('put', req.body);
+  if (!req.body.delete) {
+    res.status(400).end();
+    return;
+  }
+  db.delete(req.params.collection, req.body.delete)
+    .then(x => res.json(x));
 });
 
 // In production we need to pass these values in instead of relying on webpack

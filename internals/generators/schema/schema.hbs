@@ -1,10 +1,10 @@
 /**
-* {{ camelCase name }} schema (auto-generated)
+* {{ camelCase source.name }} schema (auto-generated)
 */
 const mongoose = require('mongoose');
 
-const {{ camelCase name }}Schema = new mongoose.Schema({
-{{#each source }}
+const {{ camelCase source.name }}Schema = new mongoose.Schema({
+{{#each source.schema }}
   {{#if obj}}
   {{key}}: {
     {{#each obj}}
@@ -27,15 +27,15 @@ const {{ camelCase name }}Schema = new mongoose.Schema({
 
 /*
 // decompose a virtual value from the model into database schema fields
-{{ camelCase name }}Schema.virtual('prop.path.here').set(val => {
+{{ camelCase source.name }}Schema.virtual('prop.path.here').set(val => {
   this.first = val.split(' ')[0];
   this.last = val.split(' ')[1];
-})
+});
 // compose a virtual value from the model instance and store as a field
-{{ camelCase name }}Schema.virtual('prop.path.here').get(function () {
+{{ camelCase source.name }}Schema.virtual('prop.path.here').get(() => {
   return `${this.first} ${this.last}`; // a full name virtual property
-})
+});
 */
 
-const {{ camelCase name }} = mongoose.model('{{ camelCase name }}', {{ camelCase name }}Schema);
-module.exports = {{ camelCase name }};
+const {{ camelCase source.name }} = mongoose.model('{{ camelCase source.name }}', {{ camelCase source.name }}Schema);
+module.exports = {{ camelCase source.name }};

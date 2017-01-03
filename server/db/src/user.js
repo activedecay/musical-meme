@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'a user having guy',
-  pw: '',
+  username: 'a user having guy',
+  password: '',
   boards: [],
 };

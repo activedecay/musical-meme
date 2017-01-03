@@ -1,27 +1,24 @@
 /**
-* board schema (auto-generated)
+* list schema (auto-generated)
 */
 const mongoose = require('mongoose');
 
-const boardSchema = new mongoose.Schema({
+const listSchema = new mongoose.Schema({
   title: String,
-  admins: Array,
-  users: Array,
-  projects: Array,
-  lists: Array,
+  todos: Array,
 });
 
 /*
 // decompose a virtual value from the model into database schema fields
-boardSchema.virtual('prop.path.here').set(val => {
+listSchema.virtual('prop.path.here').set(val => {
   this.first = val.split(' ')[0];
   this.last = val.split(' ')[1];
 });
 // compose a virtual value from the model instance and store as a field
-boardSchema.virtual('prop.path.here').get(() => {
+listSchema.virtual('prop.path.here').get(() => {
   return `${this.first} ${this.last}`; // a full name virtual property
 });
 */
 
-const board = mongoose.model('board', boardSchema);
-module.exports = board;
+const list = mongoose.model('list', listSchema);
+module.exports = list;

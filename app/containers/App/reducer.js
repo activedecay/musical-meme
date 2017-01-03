@@ -20,10 +20,11 @@ import { fromJS } from 'immutable';
 
 // The initial state of the App
 const initialState = fromJS({
-  loading: false,
-  error: false,
   currentUser: false,
   db: false,
+
+  loading: false,
+  error: false,
   userData: {
     repositories: false,
   },
@@ -39,8 +40,7 @@ function appReducer(state = initialState, action) {
     case LOAD_REPOS_SUCCESS:
       return state
         .setIn(['userData', 'repositories'], action.repos)
-        .set('loading', false)
-        .set('currentUser', action.username);
+        .set('loading', false);
     case LOAD_REPOS_ERROR:
       return state
         .set('error', action.error)
