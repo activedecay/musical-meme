@@ -32,11 +32,12 @@ app.put('/api/:collection', (req, res) => {
 app.post('/api/:collection', (req, res) => {
   logger.log('put', req.body);
   if (!req.body.create) {
-    res.status(400).end();
+    res.sendStatus(400);
     return;
   }
   db.create(req.params.collection, req.body.create)
-    .then(x => res.json(x));
+    .then(x => res.json(x),
+      e => res.status(e.code).json(e.e).end());
 });
 
 app.delete('/api/:collection', (req, res) => {

@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
-import { selectSignup, selectUsername, selectPassword } from './selectors'
+import { selectUsername, selectPassword } from './selectors';
 import { createStructuredSelector } from 'reselect';
 
 import { signup, changeUsername, changePassword } from './actions';
@@ -90,17 +90,20 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
 }
 
 Signup.propTypes = {
-  route: React.PropTypes.object,
-  signup: React.PropTypes.object,
-  username: React.PropTypes.string,
-  password: React.PropTypes.string,
+  username: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+  ]),
+  password: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+  ]),
   onSignup: React.PropTypes.func,
   onChangeUsername: React.PropTypes.func,
   onChangePassword: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  signup: selectSignup(),
   username: selectUsername(),
   password: selectPassword(),
 });

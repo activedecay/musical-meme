@@ -9,7 +9,7 @@
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
+  "author": "Justin Faust",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",

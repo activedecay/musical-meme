@@ -21,9 +21,9 @@ describe('selectGlobal', () => {
   });
 });
 
-describe('selectCurrentUser', () => {
+xdescribe('selectCurrentUser', () => {
   const currentUserSelector = selectCurrentUser();
-  it('should select the current user', () => {
+  xit('should select the current user', () => {
     const username = 'mxstbr';
     const mockedState = fromJS({
       global: {

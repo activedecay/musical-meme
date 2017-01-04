@@ -14,7 +14,7 @@ import IssueLink from './IssueLink';
 import ListItem from 'components/ListItem';
 import RepoLink from './RepoLink';
 import Wrapper from './Wrapper';
-import { selectCurrentUser } from 'containers/App/selectors';
+import { selectUsername } from 'containers/App/selectors';
 
 export class RepoListItem extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {

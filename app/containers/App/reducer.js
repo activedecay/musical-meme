@@ -20,7 +20,7 @@ import { fromJS } from 'immutable';
 
 // The initial state of the App
 const initialState = fromJS({
-  currentUser: false,
+  username: false,
   db: false,
 
   loading: false,

@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import A from './A';
 import Img from './Img';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
@@ -11,10 +10,9 @@ import HeaderText from './HeaderText';
 import banner from './banner-eyes.png';
 import messages from './messages';
 
-import { selectUsername } from '../../containers/HomePage/selectors';
-import { selectLocationState } from 'containers/App/selectors';
+import { selectUsername } from 'containers/App/selectors';
 
-class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const content = this.props.username ?
       (<NavBar>
@@ -38,12 +36,13 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 }
 
 Header.propTypes = {
-  username: React.PropTypes.string,
-  route: React.PropTypes.object,
+  username: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.bool,
+  ]),
 };
 
 const mapStateToProps = createStructuredSelector({
   username: selectUsername(),
-  route: selectLocationState(),
 });
 export default connect(mapStateToProps)(Header);

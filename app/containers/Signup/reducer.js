@@ -22,7 +22,6 @@ function signupReducer(state = initialState, action) {
         .set('loading', true);
     case c.SIGNUP_COMPLETE:
       return state
-        .set('error', false)
         .set('username', action.result)
         .set('loading', false);
     case c.SIGNUP_ERROR:

@@ -12,10 +12,10 @@ function* signup({ username, password }) {
       method: 'POST',
       body: JSON.stringify({ create: { username, password } }),
     });
-    // todo results
     yield put(actions.signupComplete(result));
   } catch (e) {
-    yield put(actions.signupError(e));
+    const js = yield e.response.json();
+    yield put(actions.signupError(js.error));
   }
 }
 
