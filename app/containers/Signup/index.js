@@ -80,10 +80,12 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
             <Input
               placeholder="username"
               onChange={(evt) => this.props.onChangeUsername((evt.target.value))}
+              required
             />
             <Input
               type="password"
               onChange={(evt) => this.props.onChangePassword((evt.target.value))}
+              required
             />
             <ButtonWrapper>
               <Submit type="submit" value="signup!" />

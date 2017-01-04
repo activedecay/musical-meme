@@ -24,11 +24,11 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
         </HeaderLink>
       </NavBar>) :
       (<NavBar>
-        <HeaderText>you want an account</HeaderText>
+        <HeaderText><FormattedMessage {...messages.callToAction} /></HeaderText>
       </NavBar>);
     return (
       <div>
-        <Img src={banner} alt="hi" />
+        <Img src={banner} alt="hi"/>
         {content}
       </div>
     );

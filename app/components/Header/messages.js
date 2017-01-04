@@ -10,6 +10,10 @@ export default defineMessages({
     id: 'boilerplate.components.Header.home',
     defaultMessage: 'home',
   },
+  callToAction: {
+    id: 'boilerplate.components.Header.callToAction',
+    defaultMessage: 'you want an account',
+  },
   signup: {
     id: 'boilerplate.components.Header.signup',
     defaultMessage: 'signup',
