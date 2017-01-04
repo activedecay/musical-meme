@@ -56,6 +56,10 @@ const Submit = styled.input`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  text-align:center;
+`;
+
 export class Signup extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -81,7 +85,9 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
               type="password"
               onChange={(evt) => this.props.onChangePassword((evt.target.value))}
             />
-            <Submit type="submit" value="signup!" />
+            <ButtonWrapper>
+              <Submit type="submit" value="signup!" />
+            </ButtonWrapper>
           </Form>
         </Wrapper>
       </div>
