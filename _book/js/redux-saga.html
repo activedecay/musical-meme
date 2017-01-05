@@ -1,0 +1,607 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>redux-saga · Musical Meme</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="i18n.html" />
+    
+    
+    <link rel="prev" href="reselect.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/commands.html">
+            
+                <a href="../general/commands.html">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/files.html">
+            
+                <a href="../general/files.html">
+            
+                    
+                    Tool Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../general/server-configs.html">
+            
+                <a href="../general/server-configs.html">
+            
+                    
+                    Server Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../general/deployment.html">
+            
+                <a href="../general/deployment.html">
+            
+                    
+                    Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../general/faq.html">
+            
+                <a href="../general/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../general/gotchas.html">
+            
+                <a href="../general/gotchas.html">
+            
+                    
+                    Gotchas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../general/remove.html">
+            
+                <a href="../general/remove.html">
+            
+                    
+                    Remove
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../testing/">
+            
+                <a href="../testing/">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../testing/unit-testing.html">
+            
+                <a href="../testing/unit-testing.html">
+            
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../testing/component-testing.html">
+            
+                <a href="../testing/component-testing.html">
+            
+                    
+                    Component Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../testing/remote-testing.html">
+            
+                <a href="../testing/remote-testing.html">
+            
+                    
+                    Remote Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../css/styled-componets.html">
+            
+                <a href="../css/styled-componets.html">
+            
+                    
+                    styled-components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../css/sanitize.html">
+            
+                <a href="../css/sanitize.html">
+            
+                    
+                    sanitize.css
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="redux.html">
+            
+                <a href="redux.html">
+            
+                    
+                    Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="immutablejs.html">
+            
+                <a href="immutablejs.html">
+            
+                    
+                    ImmutableJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="reselect.html">
+            
+                <a href="reselect.html">
+            
+                    
+                    reselect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.4" data-path="redux-saga.html">
+            
+                <a href="redux-saga.html">
+            
+                    
+                    redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="i18n.html">
+            
+                <a href="i18n.html">
+            
+                    
+                    i18n
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="routing.html">
+            
+                <a href="routing.html">
+            
+                    
+                    routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >redux-saga</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redux-saga"><code>redux-saga</code></h1>
+<p><code>redux-saga</code> is a library to manage side effects in your application. It works
+beautifully for data fetching, concurrent computations and a lot more.
+<a href="https://twitter.com/sebastienlorber" target="_blank">Sebastien Lorber</a> put it best:</p>
+<blockquote>
+<p>Imagine there is widget1 and widget2. When some button on widget1 is clicked,
+  then it should have an effect on widget2. Instead of coupling the 2 widgets
+  together (ie widget1 dispatch an action that targets widget2), widget1 only
+  dispatch that its button was clicked. Then the saga listen for this button
+  click and then update widget2 by dispatching a new event that widget2 is aware of.</p>
+<p>This adds a level of indirection that is unnecessary for simple apps, but make
+  it more easy to scale complex applications. You can now publish widget1 and
+  widget2 to different npm repositories so that they never have to know about
+  each others, without having them to share a global registry of actions. The 2
+  widgets are now bounded contexts that can live separately. They do not need
+  each others to be consistent and can be reused in other apps as well. <strong>The saga
+  is the coupling point between the two widgets that coordinate them in a
+  meaningful way for your business.</strong></p>
+</blockquote>
+<p><em>Note: It is well worth reading the <a href="https://stackoverflow.com/questions/34570758/why-do-we-need-middleware-for-async-flow-in-redux/34623840#34623840" target="_blank">source</a>
+of this quote in its entirety!</em></p>
+<p>To learn more about this amazing way to handle concurrent flows, start with the
+<a href="https://github.com/yelouafi/redux-saga" target="_blank">official documentation</a> and explore
+some examples! (read <a href="https://stackoverflow.com/questions/34930735/pros-cons-of-using-redux-saga-with-es6-generators-vs-redux-thunk-with-es7-async/34933395" target="_blank">this comparison</a> if you&apos;re used to <code>redux-thunk</code>)</p>
+<h2 id="usage">Usage</h2>
+<p>Sagas are associated with a container, just like actions, constants, selectors
+and reducers. If your container already has a <code>sagas.js</code> file, simply add your
+saga to that. If your container does not yet have a <code>sagas.js</code> file, add one with
+this boilerplate structure:</p>
+<pre><code class="lang-JS"><span class="hljs-keyword">import</span> { take, call, put, select } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
+
+<span class="hljs-comment">// Your sagas for this container</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [
+  sagaName,
+];
+
+<span class="hljs-comment">// Individual exports for testing</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">sagaName</span>(<span class="hljs-params"></span>) </span>{
+
+}
+</code></pre>
+<p>Then, in your <code>routes.js</code>, add injection for the newly added saga:</p>
+<pre><code class="lang-JS">getComponent(nextState, cb) {
+  <span class="hljs-keyword">const</span> importModules = <span class="hljs-built_in">Promise</span>.all([
+    System.import(<span class="hljs-string">&apos;containers/YourComponent/reducer&apos;</span>),
+    System.import(<span class="hljs-string">&apos;containers/YourComponent/sagas&apos;</span>),
+    System.import(<span class="hljs-string">&apos;containers/YourComponent&apos;</span>),
+  ]);
+
+  <span class="hljs-keyword">const</span> renderRoute = loadModule(cb);
+
+  importModules.then(([reducer, sagas, component]) =&gt; {
+    injectReducer(<span class="hljs-string">&apos;home&apos;</span>, reducer.default);
+    injectSagas(sagas.default); <span class="hljs-comment">// Inject the saga</span>
+
+    renderRoute(component);
+  });
+
+  importModules.catch(errorLoading);
+},
+</code></pre>
+<p>Now add as many sagas to your <code>sagas.js</code> file as you want!</p>
+<hr>
+<p><em>Don&apos;t like this feature? <a href="remove.md">Click here</a></em></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="reselect.html" class="navigation navigation-prev " aria-label="Previous page: reselect">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="i18n.html" class="navigation navigation-next " aria-label="Next page: i18n">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"redux-saga","level":"1.5.4","depth":2,"next":{"title":"i18n","level":"1.5.5","depth":2,"path":"js/i18n.md","ref":"js/i18n.md","articles":[]},"previous":{"title":"reselect","level":"1.5.3","depth":2,"path":"js/reselect.md","ref":"js/reselect.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Musical Meme","gitbook":"*"},"file":{"path":"js/redux-saga.md","mtime":"2016-12-30T23:56:39.656Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-05T03:37:29.601Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

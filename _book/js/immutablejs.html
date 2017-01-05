@@ -1,0 +1,613 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ImmutableJS · Musical Meme</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="reselect.html" />
+    
+    
+    <link rel="prev" href="redux.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/commands.html">
+            
+                <a href="../general/commands.html">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/files.html">
+            
+                <a href="../general/files.html">
+            
+                    
+                    Tool Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../general/server-configs.html">
+            
+                <a href="../general/server-configs.html">
+            
+                    
+                    Server Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../general/deployment.html">
+            
+                <a href="../general/deployment.html">
+            
+                    
+                    Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../general/faq.html">
+            
+                <a href="../general/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../general/gotchas.html">
+            
+                <a href="../general/gotchas.html">
+            
+                    
+                    Gotchas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../general/remove.html">
+            
+                <a href="../general/remove.html">
+            
+                    
+                    Remove
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../testing/">
+            
+                <a href="../testing/">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../testing/unit-testing.html">
+            
+                <a href="../testing/unit-testing.html">
+            
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../testing/component-testing.html">
+            
+                <a href="../testing/component-testing.html">
+            
+                    
+                    Component Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../testing/remote-testing.html">
+            
+                <a href="../testing/remote-testing.html">
+            
+                    
+                    Remote Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../css/styled-componets.html">
+            
+                <a href="../css/styled-componets.html">
+            
+                    
+                    styled-components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../css/sanitize.html">
+            
+                <a href="../css/sanitize.html">
+            
+                    
+                    sanitize.css
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="redux.html">
+            
+                <a href="redux.html">
+            
+                    
+                    Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="immutablejs.html">
+            
+                <a href="immutablejs.html">
+            
+                    
+                    ImmutableJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="reselect.html">
+            
+                <a href="reselect.html">
+            
+                    
+                    reselect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="redux-saga.html">
+            
+                <a href="redux-saga.html">
+            
+                    
+                    redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="i18n.html">
+            
+                <a href="i18n.html">
+            
+                    
+                    i18n
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="routing.html">
+            
+                <a href="routing.html">
+            
+                    
+                    routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ImmutableJS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="immutablejs">ImmutableJS</h1>
+<p>Immutable data structures can be deeply compared in no time. This allows us to
+efficiently determine if our components need to rerender since we know if the
+<code>props</code> changed or not!</p>
+<p>Check out the <a href="https://facebook.github.io/immutable-js/" target="_blank">official documentation</a>
+for a good explanation of the more intricate benefits it has.</p>
+<h2 id="usage">Usage</h2>
+<p>In our reducers, we make the initial state an immutable data structure with the
+<code>fromJS</code> function. We pass it an object or an array, and it takes care of
+converting it to a immutable data structure. (Note: the conversion is performed deeply so
+that even arbitrarily nested arrays/objects are immutable structures too!)</p>
+<pre><code class="lang-JS"><span class="hljs-keyword">import</span> { fromJS } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;immutable&apos;</span>;
+
+<span class="hljs-keyword">const</span> initialState = fromJS({
+  myData: {
+      message: <span class="hljs-string">&apos;Hello World!&apos;</span>
+  },
+});
+</code></pre>
+<p>When a reducer is subscribed to an action and needs to return the new state they can do so by using setter methods such as <a href="https://facebook.github.io/immutable-js/docs/#/Map/set" target="_blank"><code>.set</code></a> and <a href="https://facebook.github.io/immutable-js/docs/#/Map/update" target="_blank"><code>.update</code></a> and <a href="https://facebook.github.io/immutable-js/docs/#/Map/merge" target="_blank"><code>.merge</code></a>.<br>If the changing state data is nested, we can utilize the &apos;deep&apos; versions of these setters: <a href="https://facebook.github.io/immutable-js/docs/#/Map/setIn" target="_blank"><code>.setIn</code></a> and <a href="https://facebook.github.io/immutable-js/docs/#/Map/updateIn" target="_blank"><code>.updateIn</code></a>, <a href="https://facebook.github.io/immutable-js/docs/#/Map/mergeIn" target="_blank"><code>.mergeIn</code></a>.</p>
+<pre><code class="lang-JS"><span class="hljs-keyword">import</span> { SOME_ACTION, SOME_OTHER_ACTION } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./actions&apos;</span>;
+
+<span class="hljs-comment">// [&#x2026;]</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myReducer</span>(<span class="hljs-params">state = initialState, action</span>) </span>{
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> SOME_ACTION:
+      <span class="hljs-keyword">return</span> state.set(<span class="hljs-string">&apos;myData&apos;</span>, action.payload);
+    <span class="hljs-keyword">case</span> SOME_OTHER_ACTION:
+      <span class="hljs-keyword">return</span> state.setIn([<span class="hljs-string">&apos;myData&apos;</span>, <span class="hljs-string">&apos;message&apos;</span>], action.payload);
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+}
+</code></pre>
+<p>We use <a href="reselect.html"><code>reselect</code></a> to efficiently cache our computed application
+state. Since that state is now immutable, we need to use the <a href="https://facebook.github.io/immutable-js/docs/#/Iterable/get" target="_blank"><code>.get</code></a> and <a href="https://facebook.github.io/immutable-js/docs/#/Iterable/getIn" target="_blank"><code>.getIn</code></a>
+functions to select the part we want.</p>
+<pre><code class="lang-JS"><span class="hljs-keyword">const</span> myDataSelector = (state) =&gt; state.get(<span class="hljs-string">&apos;myData&apos;</span>);
+<span class="hljs-keyword">const</span> messageSelector = (state) =&gt; state.getIn([<span class="hljs-string">&apos;myData&apos;</span>, <span class="hljs-string">&apos;message&apos;</span>]);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> myDataSelector;
+</code></pre>
+<p>To learn more, check out <a href="reselect.html"><code>reselect.md</code></a>!</p>
+<h2 id="immutable-records">Immutable Records</h2>
+<p>ImmutableJS provides a number of immutable structures such as <a href="https://facebook.github.io/immutable-js/docs/#/Map" target="_blank"><code>Map</code></a>, <a href="https://facebook.github.io/immutable-js/docs/#/Set" target="_blank"><code>Set</code></a> and <a href="https://facebook.github.io/immutable-js/docs/#/List" target="_blank"><code>List</code></a>.
+One drawback to these structures is that properties must be accessed via the getter methods (<code>.get</code> or <code>.getIn</code>) and cannot be accessed with dot notation as they would in a plain javascript object.<br>For instance you&apos;ll write <code>map.get(&apos;property&apos;)</code> instead of <code>object.property</code>, and <code>list.get(0)</code> instead of <code>array[0]</code>.<br>This can make your code a little harder to follow and requires you to be extra cautious when passing arguments or props to functions or components that try to access values with regular dot notation.<br>ImmutableJS&apos;s <a href="https://facebook.github.io/immutable-js/docs/#/Record" target="_blank"><code>Record</code></a> structure offers a solution to this issue.</p>
+<p>A <code>Record</code> is similar to a <code>Map</code> but has a fixed shape, meaning it&apos;s property keys are predefined and you can&apos;t later add a new property after the record is created. Attempting to set new properties will cause an error.<br>One benefit of <code>Record</code> is that you can now, along with other immutable read methods (.get, .set, .merge and so on), use the dot notation to access properties.</p>
+<p>The creation of a record is less simple than simply calling <code>.toJS()</code>.<br>First, you have to define the <code>Record</code> shape. With the example above, to create your initial state, you&apos;ll write:</p>
+<pre><code class="lang-JS"><span class="hljs-comment">// Defining the shape</span>
+<span class="hljs-keyword">const</span> StateRecord = Record({
+  myData: {
+      message: <span class="hljs-string">&apos;Hello World!&apos;</span>
+  }
+});
+
+<span class="hljs-keyword">const</span> initialState = <span class="hljs-keyword">new</span> StateRecord({}); <span class="hljs-comment">// initialState is now a new StateRecord instance</span>
+                                          <span class="hljs-comment">// initialized with myData.message set by default as &apos;Hello World!&apos;</span>
+</code></pre>
+<p>Now, if you want to access <code>myData</code>, you can just write <code>state.myData</code> in your reducer code and to access the <code>message</code> property you can write <code>state.myData.message</code> as you would in a plain javascript object.</p>
+<h3 id="gotchas-of-using-records">Gotchas of Using Records</h3>
+<p>Although dot notation can now be used to read properties the same does not apply to setting properties. Any attempts to set a property on a <code>Record</code> using dot notation will result in errors. 
+Instead setter methods ( <code>.set</code>, <code>.update</code>, <code>.merge</code>) should be used.</p>
+<p>Certain properties can not be set on a record as they would conflict with the API. Consider the below example:</p>
+<pre><code class="lang-JS"><span class="hljs-keyword">const</span> ProductRecord = Record({
+    type: <span class="hljs-string">&apos;tshirt&apos;</span>,
+    size: <span class="hljs-string">&apos;small&apos;</span>
+});
+</code></pre>
+<p>Because record.size is used to return the records count (similar to array.length), the above definition would throw an error.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="redux.html" class="navigation navigation-prev " aria-label="Previous page: Redux">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="reselect.html" class="navigation navigation-next " aria-label="Next page: reselect">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ImmutableJS","level":"1.5.2","depth":2,"next":{"title":"reselect","level":"1.5.3","depth":2,"path":"js/reselect.md","ref":"js/reselect.md","articles":[]},"previous":{"title":"Redux","level":"1.5.1","depth":2,"path":"js/redux.md","ref":"js/redux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Musical Meme","gitbook":"*"},"file":{"path":"js/immutablejs.md","mtime":"2016-12-30T23:56:39.656Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-05T03:37:29.601Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

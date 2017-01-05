@@ -1,0 +1,666 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Component Testing · Musical Meme</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="remote-testing.html" />
+    
+    
+    <link rel="prev" href="unit-testing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/commands.html">
+            
+                <a href="../general/commands.html">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/files.html">
+            
+                <a href="../general/files.html">
+            
+                    
+                    Tool Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../general/server-configs.html">
+            
+                <a href="../general/server-configs.html">
+            
+                    
+                    Server Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../general/deployment.html">
+            
+                <a href="../general/deployment.html">
+            
+                    
+                    Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../general/faq.html">
+            
+                <a href="../general/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../general/gotchas.html">
+            
+                <a href="../general/gotchas.html">
+            
+                    
+                    Gotchas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../general/remove.html">
+            
+                <a href="../general/remove.html">
+            
+                    
+                    Remove
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Testing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="unit-testing.html">
+            
+                <a href="unit-testing.html">
+            
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="component-testing.html">
+            
+                <a href="component-testing.html">
+            
+                    
+                    Component Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="remote-testing.html">
+            
+                <a href="remote-testing.html">
+            
+                    
+                    Remote Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../css/styled-componets.html">
+            
+                <a href="../css/styled-componets.html">
+            
+                    
+                    styled-components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../css/sanitize.html">
+            
+                <a href="../css/sanitize.html">
+            
+                    
+                    sanitize.css
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../js/">
+            
+                <a href="../js/">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../js/redux.html">
+            
+                <a href="../js/redux.html">
+            
+                    
+                    Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../js/immutablejs.html">
+            
+                <a href="../js/immutablejs.html">
+            
+                    
+                    ImmutableJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../js/reselect.html">
+            
+                <a href="../js/reselect.html">
+            
+                    
+                    reselect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../js/redux-saga.html">
+            
+                <a href="../js/redux-saga.html">
+            
+                    
+                    redux-saga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../js/i18n.html">
+            
+                <a href="../js/i18n.html">
+            
+                    
+                    i18n
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../js/routing.html">
+            
+                <a href="../js/routing.html">
+            
+                    
+                    routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Component Testing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="component-testing">Component testing</h1>
+<p><a href="unit-testing.html">Unit testing your Redux actions and reducers</a> is nice, but you
+can do even more to make sure nothing breaks your application. Since React is
+the <em>view</em> layer of your app, let&apos;s see how to test Components too!</p>
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<ul>
+<li><a href="#shallow-rendering">Shallow rendering</a></li>
+<li><a href="#enzyme">Enzyme</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="shallow-rendering">Shallow rendering</h2>
+<p>React provides us with a nice add-on called the Shallow Renderer. This renderer
+will render a React component <strong>one level deep</strong>. Lets take a look at what that
+means with a simple <code>&lt;Button&gt;</code> component...</p>
+<p>This component renders a <code>&lt;button&gt;</code> element containing a checkmark icon and some
+text:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Button.react.js</span>
+
+<span class="hljs-keyword">import</span> CheckmarkIcon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./CheckmarkIcon.react&apos;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Button</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{props.onClick}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">CheckmarkIcon</span> /&gt;</span>
+      { React.Children.only(props.children) }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  );
+}
+
+export default Button;
+</span></code></pre>
+<p><em>Note: This is a <a href="../js/#architecture-components-and-containers">state<strong>less</strong> (&quot;dumb&quot;) component</a></em></p>
+<p>It might be used in another component like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// HomePage.react.js</span>
+
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Button.react&apos;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomePage</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span>(
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.doSomething}</span>&gt;</span>Click me!<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<p><em>Note: This is a <a href="../js/#architecture-components-and-containers">state<strong>ful</strong> (&quot;smart&quot;) component</a>!</em></p>
+<p>When rendered normally with the standard <code>ReactDOM.render</code> function, this will
+be the HTML output
+(<em>Comments added in parallel to compare structures in HTML from JSX source</em>):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>                           <span class="hljs-comment">&lt;!-- &lt;Button&gt;             --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa fa-checkmark&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>  <span class="hljs-comment">&lt;!--   &lt;CheckmarkIcon /&gt;  --&gt;</span>
+  Click Me!                        <span class="hljs-comment">&lt;!--   { props.children } --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>                          <span class="hljs-comment">&lt;!-- &lt;/Button&gt;            --&gt;</span>
+</code></pre>
+<p>Conversely, when rendered with the shallow renderer, we&apos;ll get a String
+containing this &quot;HTML&quot;:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>              <span class="hljs-comment">&lt;!-- &lt;Button&gt;             --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">CheckmarkIcon</span> /&gt;</span>   <span class="hljs-comment">&lt;!--   NOT RENDERED!      --&gt;</span>
+  Click Me!           <span class="hljs-comment">&lt;!--   { props.children } --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>             <span class="hljs-comment">&lt;!-- &lt;/Button&gt;            --&gt;</span>
+</code></pre>
+<p>If we test our <code>Button</code> with the normal renderer and there&apos;s a problem
+with the <code>CheckmarkIcon</code> then the test for the <code>Button</code> will fail as well...
+but finding the culprit will be hard. Using the <em>shallow</em> renderer, we isolate
+the problem&apos;s cause since we don&apos;t render any other components other than the
+one we&apos;re testing!</p>
+<p>The problem with the shallow renderer is that all assertions have to be done
+manually, and you cannot do anything that needs the DOM.</p>
+<p>Thankfully, <a href="https://twitter.com/AirbnbEng" target="_blank">AirBnB</a> has open sourced their
+wrapper around the React shallow renderer and jsdom, called <code>enzyme</code>. <code>enzyme</code>
+is a testing utility that gives us a nice assertion/traversal/manipulation API.</p>
+<h2 id="enzyme">Enzyme</h2>
+<p>Lets test our <code>&lt;Button&gt;</code> component! We&apos;re going to assess three things: First,
+that it renders a HTML <code>&lt;button&gt;</code> tag, second that it renders its children we
+pass it and third that handles clicks!</p>
+<p>This is our Mocha setup:</p>
+<pre><code class="lang-javascript">describe(<span class="hljs-string">&apos;&lt;Button /&gt;&apos;</span>, () =&gt; {
+  it(<span class="hljs-string">&apos;renders a &lt;button&gt;&apos;</span>, () =&gt; {});
+
+  it(<span class="hljs-string">&apos;renders its children&apos;</span>, () =&gt; {});
+
+  it(<span class="hljs-string">&apos;handles clicks&apos;</span>, () =&gt; {});
+});
+</code></pre>
+<p>Lets start with testing that it renders a <code>&lt;button&gt;</code>. To do that we first
+<code>shallow</code> render it, and then <code>expect</code> that a <code>&lt;button&gt;</code> node exists.</p>
+<pre><code class="lang-javascript">it(<span class="hljs-string">&apos;renders a &lt;button&gt;&apos;</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> renderedComponent = shallow(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
+  );
+  expect(
+    renderedComponent.find(<span class="hljs-string">&quot;button&quot;</span>).node
+  ).toExist();
+});
+</code></pre>
+<p>Nice! If somebody breaks our button component by having it render an <code>&lt;a&gt;</code> tag
+or something else we&apos;ll immediately know! Let&apos;s do something a bit more advanced
+now, and check that our <code>&lt;Button&gt;</code> renders its children.</p>
+<p>We render our button component with some text, and then verify that our text
+exists:</p>
+<pre><code class="lang-javascript">it(<span class="hljs-string">&apos;renders its children&apos;</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> text = <span class="hljs-string">&quot;Click me!&quot;</span>;
+  <span class="hljs-keyword">const</span> renderedComponent = shallow(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span>&gt;</span>{ text }<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
+  );
+  expect(
+    renderedComponent.contains(text)
+  ).toEqual(<span class="hljs-literal">true</span>);
+});
+</code></pre>
+<p>Great! Onwards to our last and most advanced test: checking that our <code>&lt;Button&gt;</code> handles clicks correctly. We&apos;ll use a Spy for that. A Spy is a
+function that knows if, and how often, it has been called. We create the Spy
+(thoughtfully provided by <code>expect</code>), pass <em>it</em> as the <code>onClick</code> handler to our
+component, simulate a click on the rendered <code>&lt;button&gt;</code> element and, lastly,
+see that our Spy was called:</p>
+<pre><code class="lang-javascript">it(<span class="hljs-string">&apos;handles clicks&apos;</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> onClickSpy = expect.createSpy();
+  <span class="hljs-keyword">const</span> renderedComponent = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClickSpy}</span> /&gt;</span>);
+  renderedComponent.find(&apos;button&apos;).simulate(&apos;click&apos;);
+  expect(onClickSpy).toHaveBeenCalled();
+});
+</span></code></pre>
+<p>And that&apos;s how you unit test your components and make sure they work correctly!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="unit-testing.html" class="navigation navigation-prev " aria-label="Previous page: Unit Testing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="remote-testing.html" class="navigation navigation-next " aria-label="Next page: Remote Testing">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Component Testing","level":"1.3.2","depth":2,"next":{"title":"Remote Testing","level":"1.3.3","depth":2,"path":"testing/remote-testing.md","ref":"testing/remote-testing.md","articles":[]},"previous":{"title":"Unit Testing","level":"1.3.1","depth":2,"path":"testing/unit-testing.md","ref":"testing/unit-testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Musical Meme","gitbook":"*"},"file":{"path":"testing/component-testing.md","mtime":"2016-12-30T23:56:39.660Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-05T03:37:29.601Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
