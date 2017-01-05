@@ -37,7 +37,7 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
 
 Header.propTypes = {
   username: React.PropTypes.oneOfType([
-    React.PropTypes.object,
+    React.PropTypes.string,
     React.PropTypes.bool,
   ]),
 };

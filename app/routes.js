@@ -18,16 +18,11 @@ export default function createRoutes(store) {
     {
       path: '/',
       name: 'home',
-      /* https://github.com/ReactTraining/react-router/blob/master/docs/Glossary.md#routerstate
-       type RouterState = {
-       location: Location;
-       routes: Array<Route>;
-       params: Params;
-       components: Array<Component>;
-       };
-       */
-      onEnter: ({ params, routes, location }, replace) => {
-        if (_.isEmpty(store.getState().getIn(['home', 'username']))) replace('/signup');
+      onEnter: ({ params, routes, location, components }, replace) => {
+        if (_.isEmpty(store.getState().getIn(['global', 'username']))) {
+          console.debug("no username, go to signup.");
+          replace('/signup');
+        }
       },
       getComponent(nextState, cb) {
         const importModules = Promise.all([

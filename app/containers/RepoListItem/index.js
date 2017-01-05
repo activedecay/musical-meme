@@ -67,6 +67,6 @@ RepoListItem.propTypes = {
 };
 
 export default connect(createSelector(
-  selectCurrentUser(),
+  selectUsername(),
   (currentUser) => ({ currentUser })
 ))(RepoListItem);

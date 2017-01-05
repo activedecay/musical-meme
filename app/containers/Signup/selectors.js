@@ -14,16 +14,6 @@ const selectSignupDomain = () => (state) => state.get('signup');
  * Default selector used by Signup
  */
 
-
-const selectUsername = () => createSelector(
-  selectSignupDomain(),
-  (homeState) => homeState.get('username')
-);
-const selectPassword = () => createSelector(
-  selectSignupDomain(),
-  (homeState) => homeState.get('password')
-);
-
 const selectSignup = () => createSelector(
   selectSignupDomain(),
   (substate) => substate.toJS()
@@ -32,6 +22,4 @@ const selectSignup = () => createSelector(
 export default selectSignup;
 export {
   selectSignupDomain,
-  selectUsername,
-  selectPassword,
 };

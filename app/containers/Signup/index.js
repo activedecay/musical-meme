@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
-import { selectUsername, selectPassword } from './selectors';
+import selectSignup from './selectors';
 import { createStructuredSelector } from 'reselect';
 
 import { signup, changeUsername, changePassword } from './actions';
@@ -60,8 +60,9 @@ const ButtonWrapper = styled.div`
   text-align:center;
 `;
 
-export class Signup extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class Signup extends React.Component { // eslint-disable-line
   render() {
+    const { username, password, error, loading } = this.props.domain;
     return (
       <div>
         <Helmet
@@ -73,7 +74,7 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
         <Wrapper>
           <Form
             onSubmit={(event) => {
-              this.props.onSignup(this.props.username, this.props.password);
+              this.props.onSignup(username, password);
               event.preventDefault();
             }}
           >
@@ -89,6 +90,7 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
             />
             <ButtonWrapper>
               <Submit type="submit" value="signup!" />
+              {error ? <div>user {error}</div> : loading ? <div>loading...</div> : null}
             </ButtonWrapper>
           </Form>
         </Wrapper>
@@ -98,22 +100,23 @@ export class Signup extends React.Component { // eslint-disable-line react/prefe
 }
 
 Signup.propTypes = {
-  username: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool,
-  ]),
-  password: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool,
-  ]),
+  domain: React.PropTypes.object,
+  // todo the domain state shape could use a deeper prop type validator
+  // username: React.PropTypes.oneOfType([
+  //   React.PropTypes.string,
+  //   React.PropTypes.bool,
+  // ]),
+  // password: React.PropTypes.oneOfType([
+  //   React.PropTypes.string,
+  //   React.PropTypes.bool,
+  // ]),
   onSignup: React.PropTypes.func,
   onChangeUsername: React.PropTypes.func,
   onChangePassword: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  username: selectUsername(),
-  password: selectPassword(),
+  domain: selectSignup(),
 });
 
 const mapDispatchToProps = () => ({

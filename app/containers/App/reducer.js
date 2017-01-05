@@ -15,6 +15,7 @@ import {
   LOAD_REPOS,
   LOAD_REPOS_ERROR,
   LOAD_DB_SUCCESS,
+  USER_SIGNED_IN,
 } from './constants';
 import { fromJS } from 'immutable';
 
@@ -48,6 +49,9 @@ function appReducer(state = initialState, action) {
     case LOAD_DB_SUCCESS:
       return state
         .set('db', action.results);
+    case USER_SIGNED_IN:
+      return state
+        .set('username', action.username);
     default:
       return state;
   }
