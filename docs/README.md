@@ -1,5 +1,3 @@
-# Documentation
-
 ## Table of Contents
 
 - [General](/docs/general)
