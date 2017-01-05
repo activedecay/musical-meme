@@ -23,3 +23,4 @@
   - [redux-saga](js/redux-saga.md)
   - [i18n](js/i18n.md)
   - [routing](js/routing.md)
+- [This book](docs/README.md)

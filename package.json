@@ -45,6 +45,8 @@
     "test:firefox": "npm run test -- --browsers Firefox",
     "test:safari": "npm run test -- --browsers Safari",
     "test:ie": "npm run test -- --browsers IE",
+    "publish:build": "gitbook build",
+    "publish:serve": "gitbook serve",
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
   },
   "lint-staged": {
