@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-- [General](general)
-  - [**CLI Commands**](general/commands.md)
-  - [Tool Configuration](general/files.md)
-  - [Server Configurations](general/server-configs.md)
-  - [Deployment](general/deployment.md) *(currently Heroku specific)*
-  - [FAQ](general/faq.md)
-  - [Gotchas](general/gotchas.md)
-  - [Remove](general/remove.md)
+- [General](/docs/general)
+  - [**CLI Commands**](/docs/general/commands.md)
+  - [Tool Configuration](/docs/general/files.md)
+  - [Server Configurations](/docs/general/server-configs.md)
+  - [Deployment](/docs/general/deployment.md) *(currently Heroku specific)*
+  - [FAQ](/docs/general/faq.md)
+  - [Gotchas](/docs/general/gotchas.md)
+  - [Remove](/docs/general/remove.md)
 - [Testing](testing)
   - [Unit Testing](testing/unit-testing.md)
   - [Component Testing](testing/component-testing.md)
