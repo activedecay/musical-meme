@@ -2,33 +2,65 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { Link as l } from 'react-router';
+import styled, {} from 'styled-components';
+const Link = styled(l)`
+  color: ${hilite};
+  text-decoration: none;
+  cursor: pointer;
+`;
+import { push } from 'react-router-redux'
 
 import Img from './Img';
 import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import HeaderText from './HeaderText';
 import banner from './banner-eyes.png';
 import messages from './messages';
-
-import { selectUsername } from 'containers/App/selectors';
+import { selectUsername, createRouteState } from 'containers/App/selectors';
+import { userSignedOut } from 'containers/App/actions';
+import { Element, Row, hilite } from 'style/lego';
 
 export class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const content = this.props.username ?
       (<NavBar>
-        <HeaderLink to="/">
-          <FormattedMessage {...messages.home} />
-        </HeaderLink>
-        <HeaderLink to="/signup">
-          <FormattedMessage {...messages.signup} />
-        </HeaderLink>
+        <Row main="between">
+          <Element>
+            <Link to="/">
+              <FormattedMessage {...messages.home} />
+            </Link>
+          </Element>
+          <Element>
+            <a onClick={() => {
+              this.props.logOut();
+              this.props.dispatch(push('/features'));
+            }}>
+              <FormattedMessage {...messages.logout} />
+            </a>
+          </Element>
+        </Row>
       </NavBar>) :
       (<NavBar>
-        <HeaderText><FormattedMessage {...messages.callToAction} /></HeaderText>
+        <Row main="center">
+          <Element>
+            <FormattedMessage {...messages.callToAction} />
+          </Element>
+          <Element>
+            {this.props.route.pathname === '/features'
+              ?
+              <Link to="/signup">
+                <FormattedMessage {...messages.signup} />
+              </Link>
+              :
+              <Link to="/features">
+                <FormattedMessage {...messages.features} />
+              </Link>
+            }
+          </Element>
+        </Row>
       </NavBar>);
     return (
       <div>
-        <Img src={banner} alt="hi"/>
+        <Img src={banner} alt="hi" />
         {content}
       </div>
     );
@@ -40,9 +72,14 @@ Header.propTypes = {
     React.PropTypes.string,
     React.PropTypes.bool,
   ]),
+  logOut: React.PropTypes.func,
+  route: React.PropTypes.object,
 };
 
-const mapStateToProps = createStructuredSelector({
+export default connect(createStructuredSelector({
   username: selectUsername(),
-});
-export default connect(mapStateToProps)(Header);
+  route: createRouteState(),
+}), dispatch => ({
+  logOut: () => dispatch(userSignedOut()),
+  dispatch,
+}))(Header);

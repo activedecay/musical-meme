@@ -9,11 +9,13 @@ import {
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
   USER_SIGNED_IN,
+  USER_SIGNED_OUT,
 } from './constants';
 
 export const dbLoaded = (results) => ({ type: LOAD_DB_SUCCESS, results });
 export const loadDb = () => ({ type: LOAD_DB });
 export const userSignedIn = (username) => ({ type: USER_SIGNED_IN, username });
+export const userSignedOut = () => ({ type: USER_SIGNED_OUT});
 
 
 

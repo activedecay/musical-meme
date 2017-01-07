@@ -5,29 +5,31 @@
 import { createSelector } from 'reselect';
 
 const selectGlobal = () => (state) => state.get('global');
+const selectUser = () => (state) => selectGlobal()(state).get('user');
+const selectRepositories = () => (state) => selectGlobal()(state).get('repo');
 
 const selectUsername = () => createSelector(
-  selectGlobal(),
-  (globalState) => globalState.get('username')
+  selectUser(),
+  (user) => user.get('username')
 );
 
 const selectLoading = () => createSelector(
-  selectGlobal(),
+  selectRepositories(),
   (globalState) => globalState.get('loading')
 );
 
 const selectError = () => createSelector(
-  selectGlobal(),
+  selectRepositories(),
   (globalState) => globalState.get('error')
 );
 
 const selectDb = () => createSelector(
-  selectGlobal(),
+  selectRepositories(),
   (globalState) => globalState.get('db')
 );
 
 const selectRepos = () => createSelector(
-  selectGlobal(),
+  selectRepositories(),
   (globalState) => globalState.getIn(['userData', 'repositories'])
 );
 
@@ -47,6 +49,11 @@ const selectLocationState = () => {
   };
 };
 
+const createRouteState = () => createSelector(
+  selectLocationState(),
+  (state) => state.locationBeforeTransitions || {}
+);
+
 export {
   selectGlobal,
   selectDb,
@@ -55,4 +62,5 @@ export {
   selectError,
   selectRepos,
   selectLocationState,
+  createRouteState,
 };

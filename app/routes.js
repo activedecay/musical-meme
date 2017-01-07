@@ -1,6 +1,8 @@
 // code splitting biz!
 import { getAsyncInjectors } from './utils/asyncInjectors';
 import _ from 'lodash';
+import { selectUsername } from 'containers/App/selectors';
+
 
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
@@ -10,6 +12,12 @@ const loadModule = (cb) => (componentModule) => {
   cb(null, componentModule.default);
 };
 
+const authorized = store => ({ params, routes, location, components }, replace) => {
+  if (_.isEmpty(selectUsername()(store.getState()))) {
+    replace('/features');
+  }
+}
+
 export default function createRoutes(store) {
   // create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store);
@@ -18,12 +26,7 @@ export default function createRoutes(store) {
     {
       path: '/',
       name: 'home',
-      onEnter: ({ params, routes, location, components }, replace) => {
-        if (_.isEmpty(store.getState().getIn(['global', 'username']))) {
-          console.debug("no username, go to signup.");
-          replace('/signup');
-        }
-      },
+      onEnter: authorized(store),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/HomePage/reducer'),
@@ -82,6 +85,27 @@ export default function createRoutes(store) {
 
         importModules.then(([reducer, sagas, component]) => {
           injectReducer('signup', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/welcome',
+      name: 'welcome',
+      onEnter: authorized(store),
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Welcome/reducer'),
+          System.import('containers/Welcome/sagas'),
+          System.import('containers/Welcome'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('welcome', reducer.default);
           injectSagas(sagas.default);
           renderRoute(component);
         });

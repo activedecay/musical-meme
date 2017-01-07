@@ -114,6 +114,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 HomePage.propTypes = {
   loading: React.PropTypes.bool,
   db: React.PropTypes.oneOfType([
+    React.PropTypes.object,
     React.PropTypes.array,
     React.PropTypes.bool,
   ]),
@@ -122,6 +123,7 @@ HomePage.propTypes = {
     React.PropTypes.bool,
   ]),
   repos: React.PropTypes.oneOfType([
+    React.PropTypes.object,
     React.PropTypes.array,
     React.PropTypes.bool,
   ]),

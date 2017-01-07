@@ -1,6 +1,5 @@
 {
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
-  "boilerplate.components.Header.home": "Home",
   "boilerplate.containers.Header.features": "Features",
   "boilerplate.containers.FeaturePage.css.header": "Features",
   "boilerplate.containers.FeaturePage.css.message": "Next generation CSS",

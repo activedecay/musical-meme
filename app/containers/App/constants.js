@@ -17,6 +17,7 @@ export const LOAD_DB = 'boilerplate/App/LOAD_DB';
 export const LOAD_DB_SUCCESS = 'boilerplate/App/LOAD_DB_SUCCESS';
 
 export const USER_SIGNED_IN = 'boilerplate/App/USER_SIGNED_IN';
+export const USER_SIGNED_OUT = 'boilerplate/App/USER_SIGNED_OUT';
 
 export const DEFAULT_LOCALE = 'en';
 

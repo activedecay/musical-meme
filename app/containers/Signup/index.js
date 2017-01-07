@@ -14,50 +14,32 @@ import { createStructuredSelector } from 'reselect';
 import { signup, changeUsername, changePassword } from './actions';
 
 import styled from 'styled-components';
+import { Row as r, Column, ElementStack as es,
+  Element, hilite, lite, dark } from 'style/lego'
 
-const Wrapper = styled.div`
-  height: 250px
-  display: flex;
-  flex-direction: column;    
-  justify-content: center;
+const Row = styled(r)`
+  height: 30em
 `;
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;    
-  justify-content: center;
-  width: 333px;
-  margin: 0 auto;
+const ElementStack = styled(es)`
+  text-align: center;
 `;
-const Input = styled.input`
-  margin: 5px;
-  padding: 5px
-  border: 1px solid lightblue;
-  border-radius: 5px
-`;
+const Input = styled.input`{
+  /*noinspection CssInvalidPropertyValue*/
+  border-bottom: 2px solid ${hilite};
+  padding: 8px;
+  margin: 2px;
+}`;
 const Submit = styled.input`
-  padding: 0.25em 2em;
-  margin: 1em;
-  text-decoration: none;
-  border-radius: 4px;
-  -webkit-font-smoothing: antialiased;
-  -webkit-touch-callout: none;
-  user-select: none;
-  cursor: pointer;
-  outline: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid #41ADDD;
-  color: #41ADDD;
-  
+  background: ${dark};
+  border: outset ${hilite};
+  padding: 3px;
+  color: ${lite};
+  width: 80%;
   &:active {
-    background: #41ADDD;
-    color: #FFF;
+    background: ${lite};
+    color: black;
+    border: inset ${hilite};
   }
-`;
-
-const ButtonWrapper = styled.div`
-  text-align:center;
 `;
 
 export class Signup extends React.Component { // eslint-disable-line
@@ -71,29 +53,39 @@ export class Signup extends React.Component { // eslint-disable-line
             { name: 'description', content: 'Description of Signup' },
           ]}
         />
-        <Wrapper>
-          <Form
+        <Row main="around" cross="center">
+          <form
             onSubmit={(event) => {
               this.props.onSignup(username, password);
               event.preventDefault();
             }}
           >
-            <Input
-              placeholder="username"
-              onChange={(evt) => this.props.onChangeUsername((evt.target.value))}
-              required
-            />
-            <Input
-              type="password"
-              onChange={(evt) => this.props.onChangePassword((evt.target.value))}
-              required
-            />
-            <ButtonWrapper>
-              <Submit type="submit" value="signup!" />
-              {error ? <div>user {error}</div> : loading ? <div>loading...</div> : null}
-            </ButtonWrapper>
-          </Form>
-        </Wrapper>
+            <Column>
+              <Element>
+                <ElementStack>
+                  <Input
+                    placeholder="username"
+                    onChange={(evt) => this.props.onChangeUsername((evt.target.value))}
+                    required
+                  />
+                </ElementStack>
+                <ElementStack>
+                  <Input
+                    type="password"
+                    onChange={(evt) => this.props.onChangePassword((evt.target.value))}
+                    required
+                  />
+                </ElementStack>
+                <ElementStack>
+                  <Element>
+                    {error ? <div>user {error}!</div> : loading ? <div>loading...</div> :
+                        <Submit type="submit" value="signup!" />}
+                  </Element>
+                </ElementStack>
+              </Element>
+            </Column>
+          </form>
+        </Row>
       </div>
     );
   }

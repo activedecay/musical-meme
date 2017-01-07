@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga';
-import { call, put } from 'redux-saga/effects';
-import { push } from 'react-router-redux'
+import { call, put, fork, take, cancel } from 'redux-saga/effects';
+import { push, LOCATION_CHANGE } from 'react-router-redux'
 import * as c from './constants';
 import * as actions from './actions';
 import { userSignedIn } from 'containers/App/actions';
@@ -21,7 +21,7 @@ function* signup({ username, password }) {
     });
     yield put(actions.signupComplete(result));
     yield put(userSignedIn(username));
-    yield put(push('/'));
+    yield put(push('/welcome'));
   } catch (e) {
     const js = yield e.response.json();
     yield put(actions.signupError(js.error));
@@ -33,7 +33,19 @@ export function* defaultSaga() {
   yield takeEvery(c.SIGNUP, signup);
 }
 
+/**
+ * Root saga manages watcher lifecycle
+ */
+export function* root() {
+  // Fork watcher so we can continue execution
+  const watcher = yield fork(defaultSaga);
+
+  // Suspend execution until location changes
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
+
 // All sagas to be loaded
 export default [
-  defaultSaga,
+  root
 ];
