@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga';
+import { takeLatest } from 'redux-saga';
 import { call, put, fork, take, cancel } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'react-router-redux'
 import * as c from './constants';
@@ -45,11 +45,11 @@ function* login({ username, password }) {
 }
 
 export function* signUpTaker() {
-  yield takeEvery(c.SIGNUP, signup);
+  yield takeLatest(c.SIGNUP, signup);
 }
 
 export function* loginTaker() {
-  yield takeEvery(c.LOGIN, login);
+  yield takeLatest(c.LOGIN, login);
 }
 
 /**

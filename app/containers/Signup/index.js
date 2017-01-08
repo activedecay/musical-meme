@@ -71,22 +71,22 @@ export class Signup extends React.Component { // eslint-disable-line
                     required
                   />
                 </ElementStack>
-                <Centered>
-                  <Element>
-                    {error ?
-                      <div>{error}!</div> :
-                      loading ?
-                        <div>loading...</div> :
-                        <Button type="submit">
-                          {login ?
-                            <FormattedMessage {...messages.login} />
-                            :
-                            <FormattedMessage {...messages.signup} />
-                          }
-                        </Button>}
-                  </Element>
-                </Centered>
               </Element>
+              <Centered>
+                <ElementStack>
+                  {error ?
+                    <div>{error}!</div> :
+                    loading ?
+                      <div>loading...</div> :
+                      <Button type="submit">
+                        {login ?
+                          <FormattedMessage {...messages.login} />
+                          :
+                          <FormattedMessage {...messages.signup} />
+                        }
+                      </Button>}
+                </ElementStack>
+              </Centered>
             </Column>
           </form>
 

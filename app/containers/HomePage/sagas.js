@@ -1,7 +1,3 @@
-/**
- * Gets the repositories of the user from Github
- */
-
 import { takeLatest } from 'redux-saga';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
@@ -50,7 +46,7 @@ export function* getDb() {
 }
 
 /**
- * Root saga manages watcher lifecycle
+ * Root saga manages lifecycles
  */
 export function* githubData() {
   // Fork watcher so we can continue execution

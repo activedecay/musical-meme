@@ -4,13 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Link as l } from 'react-router';
 import styled, {} from 'styled-components';
-const Link = styled(l)`
-  color: ${hilite};
-  text-decoration: none;
-  cursor: pointer;
-`;
 import { push } from 'react-router-redux'
-
 import Img from './Img';
 import NavBar from './NavBar';
 import banner from './banner-eyes.png';
@@ -19,6 +13,11 @@ import { selectUsername, createRouteState } from 'containers/App/selectors';
 import { userSignedOut } from 'containers/App/actions';
 import { Element, Row, hilite } from 'style/lego';
 
+const Link = styled(l)`
+  color: ${hilite};
+  text-decoration: none;
+  cursor: pointer;
+`;
 const A = styled.a`
   color: ${hilite};
   text-decoration: none;
@@ -65,10 +64,10 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
         </Row>
       </NavBar>);
     return (
-      <div>
+      <header role="banner">
         <Img src={banner} alt="hi" />
         {content}
-      </div>
+      </header>
     );
   }
 }
