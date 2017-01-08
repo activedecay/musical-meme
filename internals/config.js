@@ -27,7 +27,10 @@ const ReactBoilerplate = {
         'express',
         'ip',
         'minimist',
+        'mongodb',
+        'mongoose',
         'sanitize.css',
+        'react-icons',
       ],
 
       /**

@@ -29,6 +29,7 @@ module.exports = require('./webpack.base.babel')({
   ],
 
   // Don't use hashes in dev mode for better performance
+  // icons? blob? fonts? add this output.publicPath: 'http://127.0.0.1:3000/',
   output: {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
@@ -39,7 +40,7 @@ module.exports = require('./webpack.base.babel')({
 
   // Tell babel that we want to hot-reload
   babelQuery: {
-    presets: ['react-hmre'],
+    presets: ['es2015', 'react-hmre'],
   },
 
   // Emit a source map for easier debugging, or source-map

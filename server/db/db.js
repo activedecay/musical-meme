@@ -12,7 +12,7 @@ db.once('open', () => {
   // we're connected!
 });
 
-// api models
+// api model
 const model = {};
 model.board = require('./schema/board');
 model.book = require('./schema/book');
