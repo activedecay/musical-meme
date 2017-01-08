@@ -28,9 +28,28 @@ function* signup({ username, password }) {
   }
 }
 
-// Individual exports for testing
-export function* defaultSaga() {
+function* login({ username, password }) {
+  try {
+    const result = yield call(request, `api/user/${username}`, {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', // search for existing user/pass, or fails if not found.
+      body: JSON.stringify({ query: { username, password }, update: {} }),
+    });
+    yield put(actions.loginComplete(result));
+    yield put(userSignedIn(username));
+    yield put(push('/welcome'));
+  } catch (e) {
+    const js = yield e.response.json();
+    yield put(actions.loginError(js.error));
+  }
+}
+
+export function* signUpTaker() {
   yield takeEvery(c.SIGNUP, signup);
+}
+
+export function* loginTaker() {
+  yield takeEvery(c.LOGIN, login);
 }
 
 /**
@@ -38,11 +57,13 @@ export function* defaultSaga() {
  */
 export function* root() {
   // Fork watcher so we can continue execution
-  const watcher = yield fork(defaultSaga);
+  const signUp = yield fork(signUpTaker);
+  const login = yield fork(loginTaker);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
-  yield cancel(watcher);
+  yield cancel(signUp);
+  yield cancel(login);
 }
 
 // All sagas to be loaded

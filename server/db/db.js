@@ -34,16 +34,24 @@ module.exports = {
     });
   }),
   readAll: (collection) => new Promise((res, rej) => {
-    model[collection].find({}, (e, result) => e ? rej(e) : res(result));
+    model[collection].find({}, (e, result) =>
+      e ? rej(e) : res(result));
   }),
-  readOne: (collection, query, update) => new Promise((res, rej) => {
+  readOne: (collection, query) => new Promise((res, rej) => {
+    model[collection].findOne(query, (e, result) => {
+      e ? rej({code: 500, e: e}) :
+        result ? res(result) : rej({code: 404, e: {error: `${collection} not found`}});
+    });
+  }),
+  update: (collection, query, update) => new Promise((res, rej) => {
     model[collection].findOne(query, (e, result) => {
       logger.log('update', update, 'on', collection, 'where', query);
       Object.keys(update)
         .forEach((item) => {
           result[item] = update[item]; // eslint-disable-line no-param-reassign
         });
-      result.save((err, saved) => err ? rej(err) : res(saved));
+      result.save((err, saved) =>
+        err ? rej({ code: 500, e: err }) : res(saved));
     });
   }),
   delete: (collection, query) => new Promise((res, rej) => {

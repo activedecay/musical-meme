@@ -9,19 +9,14 @@ const divider = chalk.gray('\n-----------------------------------');
  * Logger middleware, you can customize it to make messages more personal
  */
 const logger = {
-
-  // Called whenever there's an error on the server we want to print
-  error: (err) => {
-    console.error(chalk.red(err));
+  info: (...args) => {
+    console.info(...args.map(x => chalk.blue(x)));
   },
-  log: function (...args) {
-    console.log(...args);
+  log: (...args) => {
+    console.log(...args.map(x => chalk.gray(x)));
   },
-  debug: () => {
-    console.debug(chalk.green(arguments));
-  },
-  info: () => {
-    console.log(chalk.blue(arguments));
+  error: (...args) => {
+    console.error(...args.map(x => chalk.red(x)));
   },
 
   // Called when express.js app starts on given port w/o errors

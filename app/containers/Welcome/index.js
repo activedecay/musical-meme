@@ -23,47 +23,6 @@ export class Welcome extends React.Component {
             { name: 'description', content: 'Description of Welcome' },
           ]}
         />
-        <Column main="around" cross="center">
-          <Item>
-            start
-            <Element>
-              <ElementStack><h1>Boards</h1></ElementStack>
-              <Element>
-                tits
-              </Element>
-              <ElementStack><h1>Boards</h1></ElementStack>
-              <Element>2</Element>
-            </Element>
-            end
-          </Item>
-          <Item>
-            start
-            <Element>
-              <ElementStack>1</ElementStack>
-              <Element>2</Element>
-              <ElementStack>3</ElementStack>
-            </Element>
-            end
-          </Item>
-{/*
-          <Element>
-            <ElementStack>1</ElementStack>
-            <Element>
-              <Item>
-                top
-                <Element>
-                  <ElementStack>1</ElementStack>
-                  <Element>2</Element>
-                  <Element>2</Element>
-                  <ElementStack>3</ElementStack>
-                </Element>
-                bottom
-              </Item>
-            </Element>
-            <ElementStack><Element>hi</Element></ElementStack>
-          </Element>
-*/}
-        </Column>
       </div>
     );
   }

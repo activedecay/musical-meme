@@ -12,38 +12,60 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const db = require('./db/db');
-// parse application/json
-app.use(bodyParser.json());
+
+app.use(bodyParser.json()); // allows express to parse application/json
 app.get('/api/:collection', (req, res) => {
   db.readAll(req.params.collection)
     .then((col) => res.json(col));
 });
 
-app.put('/api/:collection', (req, res) => {
-  logger.log('put', req.body);
+app.post('/api/:collection/:item', (req, res) => {
+  const { collection, item } = req.params;
+  logger.log('post', collection, '==', item, JSON.stringify(req.body));
   if (!req.body.query || !req.body.update) {
-    res.end();
+    res.status(412).json({ error: 'body requires .query and .update' });
     return;
   }
-  db.readOne(req.params.collection, req.body.query, req.body.update)
-    .then(x => res.json(x));
-});
+  const { query, update } = req.body;
+  db.readOne(collection, req.body.query)
+  //  todo update existing
+  //   // .then(x => {
+  //   //   if (update)
+  //   //     return db.update(collection, query, update)
+  //   //       .then(x => res.json(x),
+  //   //         e => res.status(e.code).json(e.e));
+  //   //   return Promise.resolve(x);
+  //   // })
+    .then(x => res.json(x),
+      e => res.status(e.code).json(e.e))
+})
 
 app.post('/api/:collection', (req, res) => {
-  logger.log('put', req.body);
+  logger.log('post', req.body);
   if (!req.body.create) {
-    res.sendStatus(400);
+    res.status(412).json({ error: 'body requires .create' });
     return;
   }
   db.create(req.params.collection, req.body.create)
     .then(x => res.json(x),
-      e => res.status(e.code).json(e.e).end());
+      e => res.status(e.code).json(e.e));
+});
+
+app.put('/api/:collection', (req, res) => {
+  logger.log('put', JSON.stringify(req.body));
+  if (!req.body.query || !req.body.update) {
+    res.status(412).json({ error: 'body requires .query and .update' });
+    return;
+  }
+  db.update(req.params.collection, req.body.query, req.body.update)
+    .then(x => res.json(x),
+      e => res.status(e.code).json(e.e));
 });
 
 app.delete('/api/:collection', (req, res) => {
-  logger.log('put', req.body);
+  logger.log('delete', req.body);
   if (!req.body.delete) {
-    res.status(400).end();
+    res.status(412).json({ error: 'body requires .create' });
     return;
   }
   db.delete(req.params.collection, req.body.delete)

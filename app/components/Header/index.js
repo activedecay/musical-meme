@@ -19,6 +19,12 @@ import { selectUsername, createRouteState } from 'containers/App/selectors';
 import { userSignedOut } from 'containers/App/actions';
 import { Element, Row, hilite } from 'style/lego';
 
+const A = styled.a`
+  color: ${hilite};
+  text-decoration: none;
+  cursor: pointer;
+`;
+
 export class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const content = this.props.username ?
@@ -30,12 +36,12 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
             </Link>
           </Element>
           <Element>
-            <a onClick={() => {
+            <A onClick={() => {
               this.props.logOut();
               this.props.dispatch(push('/features'));
             }}>
               <FormattedMessage {...messages.logout} />
-            </a>
+            </A>
           </Element>
         </Row>
       </NavBar>) :

@@ -12,10 +12,28 @@ const loadModule = (cb) => (componentModule) => {
   cb(null, componentModule.default);
 };
 
-const authorized = store => ({ params, routes, location, components }, replace) => {
+const authEntry = store => ({ params, routes, location, components }, replace) => {
   if (_.isEmpty(selectUsername()(store.getState()))) {
     replace('/features');
   }
+}
+
+const getSignupComponent = (injectReducer, injectSagas) => (nextState, cb) => {
+  const importModules = Promise.all([
+    System.import('containers/Signup/reducer'),
+    System.import('containers/Signup/sagas'),
+    System.import('containers/Signup'),
+  ]);
+
+  const renderRoute = loadModule(cb);
+
+  importModules.then(([reducer, sagas, component]) => {
+    injectReducer('signup', reducer.default);
+    injectSagas(sagas.default);
+    renderRoute(component);
+  });
+
+  importModules.catch(errorLoading);
 }
 
 export default function createRoutes(store) {
@@ -26,7 +44,7 @@ export default function createRoutes(store) {
     {
       path: '/',
       name: 'home',
-      onEnter: authorized(store),
+      onEnter: authEntry(store),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/HomePage/reducer'),
@@ -74,27 +92,15 @@ export default function createRoutes(store) {
     }, {
       path: '/signup',
       name: 'signup',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Signup/reducer'),
-          System.import('containers/Signup/sagas'),
-          System.import('containers/Signup'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('signup', reducer.default);
-          injectSagas(sagas.default);
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
+      getComponent: getSignupComponent(injectReducer, injectSagas),
+    }, {
+      path: '/login',
+      name: 'login',
+      getComponent: getSignupComponent(injectReducer, injectSagas),
     }, {
       path: '/welcome',
       name: 'welcome',
-      onEnter: authorized(store),
+      onEnter: authEntry(store),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/Welcome/reducer'),
