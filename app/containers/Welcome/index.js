@@ -25,7 +25,6 @@ export class Welcome extends React.Component {
     return (
       <Doc>
         <Tools>
-
           <Tool><FaBeer /></Tool>
           <Tool>Tool</Tool>
           <Tool>Tool</Tool>
