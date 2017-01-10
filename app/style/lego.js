@@ -1,19 +1,18 @@
 import React from 'react';
 import styled, { keyframes, ThemeProvider, css } from 'styled-components';
 
-const gutter = 10;
+const gutter = 12;
 const itemWidth = 100;
 const minorRadius = 6;
 const majorRadius = 11;
 const avatarSize = 24;
 const statSpace = 30;
 
-export const hilite = '#95d4ff';
-export const lite = '#e9c195';
-export const medium = '#aa7e5d';
-export const darkDesat = '#545454';
-export const dark = '#4f392f';
-export const shadow = '#1c150f';
+export const hilite = '#8AC5ED';
+export const lite = '#F1CA9F';
+export const medium = '#B48665';
+export const dark = '#694D3F';
+export const shadow = '#32281E';
 
 export const padding = `padding: ${gutter / 2}px;`;
 const paddingLR = `padding: 0 ${gutter / 2}px;`;
@@ -25,7 +24,7 @@ export const borderAsym = `border-radius: ${majorRadius}px ${minorRadius}px;`;
 export const borderRadius = `border-radius: ${minorRadius}px ${minorRadius}px;`;
 
 const docPaddingX = gutter / 2;
-const docPaddingY = 0;
+const docPaddingY = gutter / 2;
 const docPadding = `padding: ${docPaddingY}px ${docPaddingX}px;`;
 
 const Document = styled.div`
@@ -84,16 +83,35 @@ export const Stack = styled.div`
 `;
 
 const Toolbar = styled.menu`
-  ${padding}
-  background: ${hilite};
-  ${borderAsymReverse}
+  
+  background: ${shadow};
+  ${borderRadius}
+  display: flex;
+  flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
+  ${props => mainAxis(props.main)}
+  ${props => crossAxis(props.cross)}
 `;
 export const Tools = props => <Toolbar role="toolbar" {...props} />
 
 const ToolButton = styled.button`
   ${padding}
+  color: ${hilite};
+  border: 2px outset;
+  ${borderRadius}
+  &>svg {
+    font-size: initial;
+  }
+  &>span {
+    position:relative; 
+    top: 2px;
+    font-size: initial;
+    color: ${lite};
+  }
+  &:active {
+    border-style:inset;
+  }
 `;
-export const Tool = props => <ToolButton {...props} />
+export const Tool = props => <ToolButton role="menuitem" {...props} />
 
 /* todo refactor the below to be more like the above. */
 

@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import FaBeer from 'react-icons/lib/fa/beer';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
@@ -11,6 +10,11 @@ import styled from 'styled-components';
 import messages from './messages';
 import selectWelcome from './selectors';
 import unsplash from 'utils/images';
+
+import Beer from 'react-icons/lib/fa/beer';
+import Add from 'react-icons/lib/fa/fighter-jet';
+import Jet from 'react-icons/lib/io/jet';
+import Edit from 'react-icons/lib/io/paintbrush';
 
 import {
   Row, Doc, Article, Header, Stat, Section, Summary, Details, Stack, Tools, Tool, padding
@@ -24,11 +28,6 @@ export class Welcome extends React.Component {
   render() {
     return (
       <Doc>
-        <Tools>
-          <Tool><FaBeer /></Tool>
-          <Tool>Tool</Tool>
-          <Tool>Tool</Tool>
-        </Tools>
         <Helmet title="Welcome" />
         <Article>
           <Header>pussy</Header>
@@ -73,6 +72,13 @@ export class Welcome extends React.Component {
             <Empty>sheet</Empty>
           </Row>
         </Article>
+        <Tools main="between">
+          <div>
+            <Tool> <Add /> </Tool>
+          </div>
+          <div>
+          </div>
+        </Tools>
       </Doc>
     );
   }

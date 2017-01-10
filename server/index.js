@@ -1,8 +1,6 @@
 /* eslint consistent-return:0 */
-
 const express = require('express');
 const logger = require('./logger');
-
 const argv = require('minimist')(process.argv.slice(2));
 const setup = require('./middlewares/frontendMiddleware');
 const isDev = process.env.NODE_ENV !== 'production';

@@ -3,7 +3,6 @@ import { getAsyncInjectors } from './utils/asyncInjectors';
 import _ from 'lodash';
 import { selectUsername } from 'containers/App/selectors';
 
-
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
 };
