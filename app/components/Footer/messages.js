@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   licenseMessage: {
     id: 'boilerplate.components.Footer.license.message',
-    defaultMessage: '(c) 2016-2017 MIT - Justin Faust',
+    defaultMessage: '(c) 2016-2017 - sloth',
   },
 });

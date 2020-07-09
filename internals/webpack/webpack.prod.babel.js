@@ -14,6 +14,7 @@ module.exports = require('./webpack.base.babel')({
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
+    publicPath:'/~twotoes/'
   },
 
   plugins: [
@@ -31,14 +32,16 @@ module.exports = require('./webpack.base.babel')({
     new HtmlWebpackPlugin({
       template: 'app/index.html',
       minify: {
-        removeComments: true,
+        removeComments: false,
+        // removeComments: true,
         collapseWhitespace: true,
         removeRedundantAttributes: true,
         useShortDoctype: true,
         removeEmptyAttributes: true,
         removeStyleLinkTypeAttributes: true,
         keepClosingSlash: true,
-        minifyJS: true,
+        minifyJS: false,
+        // minifyJS: true,
         minifyCSS: true,
         minifyURLs: true,
       },
